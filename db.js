@@ -2,6 +2,7 @@ const Sequelize = require('sequelize');
 const { STRING } = Sequelize;
 const config = {};
 if(process.env.SSL){
+  console.log('yes');
   config.ssl = {
     rejectUnauthorized: false
   };
