@@ -3,8 +3,10 @@ const { STRING } = Sequelize;
 const config = {};
 if(process.env.SSL){
   console.log('yes');
-  config.ssl = {
-    rejectUnauthorized: false
+  config.dialectOptions = {
+    ssl :  {
+      rejectUnauthorized: false
+    }
   };
 }
 const conn = new Sequelize(process.env.DATABASE_URL || 'postgres://localhost/acme_db', config);
