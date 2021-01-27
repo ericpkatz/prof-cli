@@ -21,6 +21,8 @@ describe('Routes', ()=> {
       const response = await app.get('/api/users');
       expect(response.status).to.equal(200);
       expect(response.body.length).to.equal(2);
+      expect(response.headers['access-control-allow-origin']).to.equal('*');
+      console.log(response.headers);
     });
   });
 });

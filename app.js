@@ -4,7 +4,7 @@ const { models: { User }} = require('./db');
 
 module.exports = app;
 
-app.use(require('cors'));
+app.use(require('cors')());
 
 
 app.get('/', (req, res, next)=> res.send('hello'));
