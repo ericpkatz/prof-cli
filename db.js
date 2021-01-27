@@ -1,6 +1,6 @@
 const Sequelize = require('sequelize');
 const { STRING } = Sequelize;
-const conn = new Sequelize(process.env.DATABASE_URL);
+const conn = new Sequelize(process.env.DATABASE_URL || 'postgres://localhost/acme_db');
 
 syncAndSeed = async()=> {
   await conn.sync({ force: true });
