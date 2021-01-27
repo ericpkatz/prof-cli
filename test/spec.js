@@ -16,4 +16,11 @@ describe('Routes', ()=> {
       expect(response.text).to.equal('bar');
     });
   });
+  describe('GET /api/users', ()=> {
+    it('returns users', async()=> {
+      const response = await app.get('/api/users');
+      expect(response.status).to.equal(200);
+      expect(response.body.length).to.equal(2);
+    });
+  });
 });
