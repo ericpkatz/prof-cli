@@ -1,6 +1,12 @@
 const Sequelize = require('sequelize');
 const { STRING } = Sequelize;
-const conn = new Sequelize(process.env.DATABASE_URL || 'postgres://localhost/acme_db');
+const config = {};
+if(process.env.SSL){
+  config.ssl = {
+    rejectUnauthorized: false
+  };
+}
+const conn = new Sequelize(process.env.DATABASE_URL || 'postgres://localhost/acme_db', config);
 
 syncAndSeed = async()=> {
   await conn.sync({ force: true });
